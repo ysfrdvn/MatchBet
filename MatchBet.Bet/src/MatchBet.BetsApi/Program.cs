@@ -1,3 +1,5 @@
+using MatchBet.BetsApi.Options;
+using MatchBet.BetsApi.Repositories;
 using MatchBet.BetsApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +12,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IMatchPrepareService, MatchPrepareService>();
-
+builder.Services.AddTransient<IMatchRepository, MatchRepository>();
+builder.Services.Configure<MongoOptions>(options =>
+{
+    options.ConnectionString = builder.Configuration.GetSection("MongoConnection:ConnectionString").Value;
+    options.Database = builder.Configuration.GetSection("MongoConnection:Database").Value;
+});
+builder.Services.Configure<MatchConfiguration>(options =>
+{
+    options.Key = builder.Configuration.GetSection("MatchApiKey").Value;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
