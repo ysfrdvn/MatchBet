@@ -53,6 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "XThreadsFramesViewSplitterKey": "0.5008183",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -111,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670088562424</updated>
-      <workItem from="1670088564991" duration="14393000" />
+      <workItem from="1670088564991" duration="14725000" />
     </task>
     <servers />
   </component>
