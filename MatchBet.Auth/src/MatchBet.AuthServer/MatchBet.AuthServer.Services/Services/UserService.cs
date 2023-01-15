@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 namespace AuthServer.Service.Services
 {
     public class UserService : IUserService
-    {
+    { 
+
         private readonly UserManager<AppUser> _userManager;
 
         public UserService(UserManager<AppUser> userManager)
@@ -22,7 +23,7 @@ namespace AuthServer.Service.Services
 
         public async Task<Response<AppUserDTO>> CreateUserAsync(CreateUserDTO createUserDto)
         {
-            var user = new AppUser { Email = createUserDto.Email, UserName = createUserDto.UserName };
+            var user = new AppUser { Email = createUserDto.Email, UserName = createUserDto.UserName, Credit = 3, Score = 0 };
 
             var result = await _userManager.CreateAsync(user, createUserDto.Password);
 
