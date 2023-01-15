@@ -33,7 +33,7 @@ namespace MatchBet.Player.Controllers
             }
             return Ok(player);
         }
-        
+                
         [HttpPost]
         [SwaggerResponse((int)HttpStatusCode.OK, "Save new player", typeof(Models.Player))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "BadRequest.", typeof(BadRequest))]    
@@ -48,6 +48,26 @@ namespace MatchBet.Player.Controllers
 
             await _playerServices.SavePlayerAsync(request);
             return Ok(Constants.Success);
+        }
+
+        [Route("updatePlayerScore")]
+        [HttpPost]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Update User Success", typeof(Models.Player))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "BadRequest.", typeof(BadRequest))]
+        public async Task<IActionResult> UpdatePlayerScore([FromBody] UpdatePlayerScoreRequest updatePlayerScoreRequest)
+        {
+            var user = await _playerServices.UpdatePlayerScore(updatePlayerScoreRequest.UserName,updatePlayerScoreRequest.Score);
+            return Ok(user);
+        }
+
+        [Route("getLeaderBoard")]
+        [HttpPost]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Leader Board Get Success", typeof(List<Models.Player>))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "BadRequest.", typeof(BadRequest))]
+        public async Task<IActionResult> GetLeaderBoard()
+        {
+            var leaderBoard = await _playerServices.GetLeaderBoard();
+            return Ok(leaderBoard);
         }
     }
 }

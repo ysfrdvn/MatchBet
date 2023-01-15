@@ -21,6 +21,23 @@ namespace MatchBet.Player.Repository
             await _dataContext.Players.AddAsync(player);
             await _dataContext.SaveChangesAsync();
         }
+        public async Task<Models.Player> UpdatePlayer(Models.Player player)
+        {
+            _dataContext.Players.Update(player);
+            await _dataContext.SaveChangesAsync();
+            return player;
+        }
+
+        public async Task<List<Models.Player>> GetLeaderBoard()
+        {
+            var leaderBoard = _dataContext.Players.OrderByDescending(q=>q.Score).Take(10);
+            return await leaderBoard.ToListAsync();
+        }
+        public async Task UpdateAllUserCredit()
+        {
+            await _dataContext.Players.ForEachAsync(p => { p.Credit = 3; });
+            await _dataContext.SaveChangesAsync();
+        }
     }
 }
 

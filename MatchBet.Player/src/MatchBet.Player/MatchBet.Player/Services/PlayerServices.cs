@@ -35,13 +35,27 @@ namespace MatchBet.Player.Services
             var playerModel = new Models.Player
             {
                 UserName = createPlayerRequest.UserName,
-                Password = createPlayerRequest.Password,
-                Name = createPlayerRequest.Name,
-                Surname = createPlayerRequest.Surname,
+                Email = createPlayerRequest.Email,
                 Credit = 3,
                 Score = 0
             };
             await _playerRepository.SavePlayerAsync(playerModel);
+        }
+
+        public async Task<Models.Player?> UpdatePlayerScore(string userName, Double score)
+        {
+            var user = await GetPlayerByUsernameAsync(userName);
+            user.Score = score;
+            await _playerRepository.UpdatePlayer(user);
+            return user;
+        }
+        public async Task<List<Models.Player?>> GetLeaderBoard()
+        {
+            return await _playerRepository.GetLeaderBoard();
+        }
+        public async Task UpdateAllUserCredit()
+        {
+            await _playerRepository.UpdateAllUserCredit();
         }
     }
 }
