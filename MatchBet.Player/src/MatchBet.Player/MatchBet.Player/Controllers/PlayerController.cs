@@ -69,6 +69,15 @@ namespace MatchBet.Player.Controllers
             var leaderBoard = await _playerServices.GetLeaderBoard();
             return Ok(leaderBoard);
         }
+        
+        [Route("temp")]
+        [HttpGet]
+        [SwaggerResponse((int)HttpStatusCode.OK, "temp", typeof(List<Models.Player>))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "temp.", typeof(BadRequest))]
+        public async Task<IActionResult> Temp()
+        {
+            return Ok("Başarılı");
+        }
     }
 }
 
