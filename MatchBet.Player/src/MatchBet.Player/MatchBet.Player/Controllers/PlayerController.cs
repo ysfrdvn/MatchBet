@@ -56,7 +56,7 @@ namespace MatchBet.Player.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "BadRequest.", typeof(BadRequest))]
         public async Task<IActionResult> UpdatePlayerScore([FromBody] UpdatePlayerScoreRequest updatePlayerScoreRequest)
         {
-            var user = await _playerServices.UpdatePlayerScore(updatePlayerScoreRequest.UserName,updatePlayerScoreRequest.Score);
+            var user = await _playerServices.UpdatePlayerScore(updatePlayerScoreRequest.Id,updatePlayerScoreRequest.Score);
             return Ok(user);
         }
 

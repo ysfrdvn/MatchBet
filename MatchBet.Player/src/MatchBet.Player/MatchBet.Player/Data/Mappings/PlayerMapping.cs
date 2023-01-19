@@ -8,12 +8,13 @@ public class PlayerMapping
     public PlayerMapping(EntityTypeBuilder<Models.Player> entityTypeBuilder)
     {
         entityTypeBuilder.HasKey(q => q.Id);
-        entityTypeBuilder.ToTable("AspNetUsers");
+        entityTypeBuilder.ToTable("players");
 
-        entityTypeBuilder.Property(q => q.Id).HasColumnName("Id");
-        entityTypeBuilder.Property(q => q.UserName).HasColumnName("UserName");
-        entityTypeBuilder.Property(q => q.Email).HasColumnName("Email");
-        entityTypeBuilder.Property(q => q.Credit).HasColumnName("Credit");
-        entityTypeBuilder.Property(q => q.Score).HasColumnName("Score");
+        entityTypeBuilder.Property(q => q.Id).HasColumnName("id");
+        entityTypeBuilder.Property(q => q.UserName).HasColumnName("username");
+        entityTypeBuilder.Property(q => q.Email).HasColumnName("email");
+        entityTypeBuilder.Property(q => q.Password).HasColumnName("password");
+        entityTypeBuilder.Property(q => q.Credit).HasColumnName("credit");
+        entityTypeBuilder.Property(q => q.Score).HasColumnName("score");
     }
 }

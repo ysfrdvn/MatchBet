@@ -17,6 +17,10 @@ namespace MatchBet.Coupon.Repositories.MatchPredictRepository
         {
             return await _dataContext.MatchPredicts.FirstOrDefaultAsync(q => q.Id == id);
         }
+        public async Task<List<MatchPredict>> GetMatchPredictByCouponIdAsync(int couponId)
+        {
+            return await _dataContext.MatchPredicts.Where(q => q.CouponId == couponId).ToListAsync();
+        }
 
         public async Task SaveMatchPredictAsync(MatchPredict matchPredict)
         {

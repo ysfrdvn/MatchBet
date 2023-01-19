@@ -26,13 +26,14 @@ spec:
     spec:
       containers:
       - name: bet-app
-        image: ysfrdvn95/matchbet-bet-app
+        image: matchbet-bet
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
         env:
         - name: MongoConnection__ConnectionString
-          value: "mongodb://localhost:30001/"
+          value: "mongodb://mongo-svc:27017/"
         - name: MongoConnection__Database
           value: "MatchBet"
         - name: MatchApiKey
-          value: "burayakeygelecek"
+          value: "fafa894307msh153846cd1ae874ep129895jsna7cdd3f3e836"
