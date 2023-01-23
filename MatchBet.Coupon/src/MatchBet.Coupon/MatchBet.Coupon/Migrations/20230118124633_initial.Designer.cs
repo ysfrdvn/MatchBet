@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MatchBet.Coupon.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230102111617_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230118124633_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

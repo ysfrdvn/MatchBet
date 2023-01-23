@@ -15,7 +15,11 @@ namespace MatchBet.Player.Repository
         {
             return await _dataContext.Players.FirstOrDefaultAsync(q => q.UserName == username);
 ;       }
-        
+        public async Task<Models.Player?> GetPlayerByUserIdAsync(int id)
+        {
+            return await _dataContext.Players.FirstOrDefaultAsync(q => q.Id == id);
+        }
+
         public async Task SavePlayerAsync(Models.Player player)
         {
             await _dataContext.Players.AddAsync(player);

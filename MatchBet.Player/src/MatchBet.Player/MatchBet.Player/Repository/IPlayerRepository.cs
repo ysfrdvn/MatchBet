@@ -7,6 +7,7 @@ namespace MatchBet.Player.Repository
         Task<Models.Player> UpdatePlayer(Models.Player player);
         Task<List<Models.Player>> GetLeaderBoard();
         Task UpdateAllUserCredit();
+        Task<Models.Player?> GetPlayerByUserIdAsync(int id);
     }
 }
 

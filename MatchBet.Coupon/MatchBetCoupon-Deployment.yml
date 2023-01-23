@@ -30,6 +30,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5002
-      #  env:
-      #  - name: ConnectionString
-      #    value: "host=postgres;port=5432;database=matchbet_db;username=my_user;password=pass1234"
+        env:
+        - name: ConnectionString
+          value: "host=postgres;port=5432;database=matchbet_db;username=my_user;password=pass1234"

@@ -28,7 +28,8 @@ spec:
     spec:
       containers:
       - name: player-app
-        image: ysfrdvn95/matchbet-player-app
+        image: matchbet-player
+        imagePullPolicy: Never
         ports:
         - containerPort: 5001
         env:

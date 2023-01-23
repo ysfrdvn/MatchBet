@@ -21,5 +21,10 @@ namespace MatchBet.Coupon.Services.MatchPredictService
         {
             await _matchPredictRepository.SaveMatchPredictAsync(matchPredict);
         }
+
+        public async Task<List<MatchPredict>> GetMatchPredictByCouponIdAsync(int couponId)
+        {
+            return await _matchPredictRepository.GetMatchPredictByCouponIdAsync(couponId);
+        }
     }
 }

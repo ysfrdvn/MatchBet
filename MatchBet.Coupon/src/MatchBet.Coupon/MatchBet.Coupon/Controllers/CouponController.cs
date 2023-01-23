@@ -35,7 +35,7 @@ namespace MatchBet.Coupon.Controllers
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Returns user notfount.", typeof(NotFoundResult))]
         public async Task<IActionResult> RefreshAndUpdateCoupons(int userId)
         {
-            var couponList = _couponService.RefreshCouponsByUserId(userId);
+            var couponList = await _couponService.RefreshCouponsByUserId(userId);
             return Ok(couponList);
         }
     }

@@ -3,6 +3,6 @@
     public class UpdatePlayerScoreRequest
     {
         public double Score { get; set; }
-        public string UserName { get; set; }
+        public int Id { get; set; }
     }
 }
